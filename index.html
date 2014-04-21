@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+		<meta name="viewport"  content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+
+        <title> Brown Plus</title>
+    </head>
+    <body>
+	
+	<!-- page inicio -->
+	<div date-role="page" id="inicio">
+	
+	<header data-role="header">
+    <h1>Diario Brown</h1>
+</header>
+
+
+
+
+<article data-role="content"  >
+<div id="output" >
+<ul data-role="listview"  data-filter="true"  data-filter-placeholder="Buscar">
+
+
+ </ul>
+ </div>
+</article>
+
+
+
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+var url="conectando.php";
+
+$.getJSON(url,function(data){
+$.each(data.users, function(i,user){
+$('#output').children('ul').append('<li>    <a href="#"> <h1>'+user.post_title+'</h1> <p>'+user.post_date+'</p></a></li>').listview('refresh');
+});
+});
+});
+
+</script>
+
+           
+    
+
+<footer data-role="footer" data-position="fixed">
+
+
+
+
+    <nav data-role="navbar">
+        <ul>
+            <li><a href="page2" data-icon="home">Inicio</a></li>
+<li><a href="Photos" data-icon="grid">Noticias</a></li>
+<li><a href="Info" data-icon="info">Info</a></li>
+        </ul>
+    </nav>
+</footer>
+   
+</div>
+
+
+<!-- fin page inicio -->
+
+
+
+
+
+
+
+
+   </body>
+</html>
